@@ -69,9 +69,25 @@ class CheckRoomAvailabilityTest extends TestCase
     
 
     public function date(){
-        $booking = new Booking();
-        $begin = Carbon::now('UTC')->format('Y-m-d H:i:s');
+        
+         $booking = new Booking();
+         // equal
+        // $begin = Carbon::now('UTC')->format('Y-m-d H:i:s');
+        // $end = Carbon::now('UTC')->format('Y-m-d H:i:s');
+        // $this->assertFalse($booking->isValidDate($begin,$end));
+
+        //--------------------------------------------------------
+
+        // add more in start
+        $begin = Carbon::now('UTC')->addHour(4)->format('Y-m-d H:i:s');
         $end = Carbon::now('UTC')->format('Y-m-d H:i:s');
+        $this->assertFalse($booking->isValidDate($begin,$end));
+
+        //--------------------------------------------------------
+
+        // add more in less
+        $begin = Carbon::now('UTC')->format('Y-m-d H:i:s');
+        $end = Carbon::now('UTC')->addHour(3)->format('Y-m-d H:i:s');
         $this->assertFalse($booking->isValidDate($begin,$end));
     }
 }
