@@ -17,14 +17,27 @@ class CheckRoomAvailabilityTest extends TestCase
      */
     public function room_test()
     {
+        //1 is non premium
+        //2 is premium
+
         //$user = User::find(1);
         //$room = Room::find(1);
 
         //$this->assertTrue($room->canBook($user));
 
-        $user = User::find(1);
-        $room = Room::find(2);
+        // $user = User::find(1);
+        // $room = Room::find(2);
 
-        $this->assertFalse($room->canBook($user));
+        // $this->assertFalse($room->canBook($user));
+
+        // $user = User::find(2);
+        // $room = Room::find(1);
+
+        // $this->assertTrue($room->canBook($user));
+
+        // $user = User::find(2);
+        // $room = Room::find(2);
+
+        // $this->assertTrue($room->canBook($user));
     }
 }
