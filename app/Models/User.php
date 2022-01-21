@@ -22,7 +22,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'premium'
+        'premium',
+        'credit'
     ];
 
     /**
@@ -52,5 +53,10 @@ class User extends Authenticatable
         return $this->hasMany(Booking::class);
     }
 
-
+    public function validCreditToAdd($credit) {
+        if($credit > 0) {
+            return true;
+        }
+        return false;
+    }
 }
